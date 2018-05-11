@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+  </script>
+
+<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+<meta name="google-signin-client_id" content="612580145419-m9gmi9j4cgpq0k7g5qep3kt3693ierse.apps.googleusercontent.com">
+
+<!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
+
+
+</head>
+
+
+<body>
+
+
+<!-- GOOGLE PLUS SIGN IN-->
+
+
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<div id="result"></div>
+
+<script>
+// Google Sign-in (new)
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    var result = "";
+    result += 'ID: '+ profile.getId(); // Do not send to your backend! Use an ID token instead.
+    result += 'Name: ' + profile.getName();
+    result += 'Image URL: ' + profile.getImageUrl();
+    result += 'Email: ' + profile.getEmail(); // This is null if the 'email' scope is not present.
+    $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+     setTimeout(function() {
+        window.location.href = "/restaurant";
+     }, 4000);
+  }
+
+</script>
+
+
+
+<!--END GOOGLE PLUS SIGN IN -->
+
+  </body>
+
+  </html>
